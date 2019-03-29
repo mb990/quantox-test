@@ -29,45 +29,4 @@ if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
 
 <div class="row">
 
-<?php
-    // if something is searched find the results
-    if (isset($_POST['search'])) {
-        $q = $_POST['search'];
-        $sql = "SELECT * FROM `users` WHERE `name` LIKE ?";
-        $search = $pdo->prepare($sql);
-        
-        $search->execute(array("%$q%"));
-        // if there are results, echo them out
-        if ($search->rowCount() > 0){
-            
-            echo "<div class=container>";
-            echo "<div class='row justify-content-center'>";
-           
-            echo '<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">';
-            echo "<table class='table table-bordered text-center'>
-                <th>
-                    ID <td class='col col-lg-4'><strong>Name</strong></td>
-                    <td class='col col-lg-4'><strong>Email</strong></td>
-                </th>";
-            foreach ($search as $row){
-           
-            echo "<tr>
-                    <td class='col col-lg-4'>" . $row["id"] . "</td>
-                    <td class='col col-lg-4'>" . $row["name"] . "</td>
-                    <td class='col col-lg-4'>" . $row["email"] . "</td>
-                </tr>";
-        }
-        echo "</table>";
-    echo "</div>";
-    echo "</div>";
-    }
-    else {
-        echo "<div class=container>";
-        echo '<p class="lead text-center">No results to show.</p>';
-        echo "</div>";
-    }
-    echo "</div>";
-}           
-?>
-
 </div>

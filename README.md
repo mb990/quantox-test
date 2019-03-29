@@ -12,11 +12,8 @@ DESCRIPTION
   via includes. There is also an .sql file, which the user can import into his database to easy him things.
 
   I found out some nice redirection technique, so i used it if a person tries to approach forbidden pages. Check it out!
-
-  Speaking of PDO, or the content.php page, i had issues which i managed to solve in unconvinient way, you will see.
-  But it worked out eventually :) i still dont know the reason why the convinient way didnt work.
   
-  INSTRUCTIONS
+INSTRUCTIONS
   
   First create database 'quantox'. Or you can name it however you want, tho you will have to change credentials in config.php.
 

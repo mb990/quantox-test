@@ -6,20 +6,24 @@ require_once ('../../classes/Database.php');
 
 include (APPROOT . INC . '/header.php');
 
-// include (APPROOT . INC . '/content.php');
-
+// checking if user is logged in. If not he is redirected to the login page.
 if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
     echo 'You are forbidden! Login first to access this page.<br>You will be redirected to login page in 10 seconds.<br>
     if you dont have an account, please  <a href="register">register</a> and then login.';
     header("refresh:10;url='login'");
     exit;
 }
+    // if user searched
 if (isset($_POST['search'])) {
-$q = $_POST['search'];
+        // Set a variable
+        $q = $_POST['search'];
+        // Prepare query
         $sql = "SELECT * FROM `users` WHERE `name` LIKE ?";
+        // Prepare statement
         $search = $pdo->prepare($sql);
-        
+        // Execute statement
         $search->execute(array("%$q%"));
+        // If there are results, display them.
         if ($search->rowCount() > 0){
             
             echo "<div class='container'>";
@@ -40,12 +44,12 @@ $q = $_POST['search'];
                 </tr>";
         }
         echo "</table>";
-    // echo "</ul>";
     echo "</div>";
     echo "</div>";
     }
     else {
         echo "<div class=container>";
+        // Or show the message
         echo '<p class="lead text-center">No results to show.</p>';
         echo "</div>";
     }
