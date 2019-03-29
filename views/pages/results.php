@@ -8,7 +8,6 @@ include (APPROOT . INC . '/header.php');
 
 // include (APPROOT . INC . '/content.php');
 
-
 if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
     echo 'You are forbidden! Login first to access this page.<br>You will be redirected to login page in 10 seconds.<br>
     if you dont have an account, please  <a href="register">register</a> and then login.';
@@ -31,7 +30,6 @@ $q = $_POST['search'];
                 <th>
                     ID <td class='col col-lg-4'><strong>Name</strong></td>
                     <td class='col col-lg-4'><strong>Email</strong></td>
-                    <td class='col col-lg-4'><strong>Created At</strong></td>
                 </th>";
             foreach ($search as $row){
            
@@ -39,7 +37,6 @@ $q = $_POST['search'];
                     <td class='col col-lg-4'>" . $row["id"] . "</td>
                     <td class='col col-lg-4'>" . $row["name"] . "</td>
                     <td class='col col-lg-4'>" . $row["email"] . "</td>
-                    <td class='col col-lg-4'>" . $row["created_at"] . "</td>
                 </tr>";
         }
         echo "</table>";

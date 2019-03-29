@@ -19,7 +19,7 @@ if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
 <!-- <div class="container"> -->
     <div class="row justify-content-center">
         <div class="col-offset-4 col-md-4 col-offset-4">
-            <form class="form-inline my-2 my-lg-0" method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
+            <form class="form-inline my-2 my-lg-0" method="POST" action="results">
                 <input class="form-control mr-sm-2" name="search" id="search" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
