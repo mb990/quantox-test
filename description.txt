@@ -10,5 +10,3 @@ I found out some nice redirection technique, so i used it if a person tries to a
 
 Speaking of PDO, or the content.php page, i had issues which i managed to solve in unconvinient way, you will see.
 But it worked out eventually :) i still dont know the reason why the convinient way didnt work.
-
-I had trouble showing results in its actual page. Tried several things but unfortunately, none of those worked.
