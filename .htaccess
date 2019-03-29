@@ -1,0 +1,14 @@
+#Options - Indexes
+
+#turn on url rewriting 
+RewriteEngine on
+
+#remove the need for .php extension 
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}\.php -f 
+RewriteRule ^(.*)$ $1.php
+
+#redirect from root to index.php
+RewriteCond %{HTTP_HOST} ^http://localhost/quantox-proba\.test$
+RewriteRule (.*) http://localhost/quantox-proba/$1 [R=301,L]
+RewriteRule ^$ views/pages [L]

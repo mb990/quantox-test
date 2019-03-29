@@ -1,0 +1,1 @@
+<h1 class = 'text-center'>This is <?php echo $title ?> page</h1> <br>

@@ -1,0 +1,10 @@
+First create database 'quantox'. Or you can name it however you want, tho you will have to change credentials in config.php.
+
+Then, insert file 'users.sql' into your database. It will now create table 'users' with needed columns for you.
+
+Third, go to 'http://localhost/quantox-test' and it will redirect you to the login/register page, or you can simply
+go to 'http://localhost/quantox-test/views/pages/register' directly.
+
+Register an account and login into the system.
+
+And that's it :) now you can search users or see About page, also you can logout on the logout button.

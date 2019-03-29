@@ -1,0 +1,2 @@
+#Deny inc folder from being viewed through url manipulation
+Deny from all
