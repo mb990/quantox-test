@@ -1,4 +1,5 @@
 <?php
+    // checking if user is logged in. If not he is redirected to the login page.
 if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
     echo 'You are forbidden! Login first to access this page.<br>You will be redirected to login page in 10 seconds.<br>
     if you dont have an account, please  <a href="register">register</a> and then login.';
@@ -18,7 +19,7 @@ if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
 <!-- <div class="container"> -->
     <div class="row justify-content-center">
         <div class="col-offset-4 col-md-4 col-offset-4">
-            <form class="form-inline my-2 my-lg-0" method="POST" action="results">
+            <form class="form-inline my-2 my-lg-0" method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
                 <input class="form-control mr-sm-2" name="search" id="search" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
@@ -29,12 +30,14 @@ if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
 <div class="row">
 
 <?php
+    // if something is searched find the results
     if (isset($_POST['search'])) {
         $q = $_POST['search'];
         $sql = "SELECT * FROM `users` WHERE `name` LIKE ?";
         $search = $pdo->prepare($sql);
         
         $search->execute(array("%$q%"));
+        // if there are results, echo them out
         if ($search->rowCount() > 0){
             
             echo "<div class=container>";

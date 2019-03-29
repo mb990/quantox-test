@@ -8,19 +8,19 @@ include APPROOT . INC .'/header.php';
 
 <?php
  
-  
+  // Setting vars
   $email = '';
   $password = '';
   $email_err = '';
   $password_err = '';
    
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
-      
+      // Sanitize
       $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-  
+      // Trim
       $email = trim($_POST['email']);
       $password = trim($_POST['password']);
-  
+       // Throwing errors if some field is empty
       if(empty($email)){
         $email_err = 'Please enter email';
       }
@@ -28,7 +28,7 @@ include APPROOT . INC .'/header.php';
       if(empty($password)){
         $password_err = 'Please enter password';
       }
-  
+      // If no errors, proceed to logging in
       if(empty($email_err) && empty($password_err)){
         
         $sql = 'SELECT name, email, password FROM users WHERE email = :email';

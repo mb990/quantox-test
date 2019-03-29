@@ -15,7 +15,7 @@ if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
     header("refresh:10;url='login'");
     exit;
 }
-
+if (isset($_POST['search'])) {
 $q = $_POST['search'];
         $sql = "SELECT * FROM `users` WHERE `name` LIKE ?";
         $search = $pdo->prepare($sql);
@@ -31,6 +31,7 @@ $q = $_POST['search'];
                 <th>
                     ID <td class='col col-lg-4'><strong>Name</strong></td>
                     <td class='col col-lg-4'><strong>Email</strong></td>
+                    <td class='col col-lg-4'><strong>Created At</strong></td>
                 </th>";
             foreach ($search as $row){
            
@@ -38,6 +39,7 @@ $q = $_POST['search'];
                     <td class='col col-lg-4'>" . $row["id"] . "</td>
                     <td class='col col-lg-4'>" . $row["name"] . "</td>
                     <td class='col col-lg-4'>" . $row["email"] . "</td>
+                    <td class='col col-lg-4'>" . $row["created_at"] . "</td>
                 </tr>";
         }
         echo "</table>";
@@ -51,7 +53,8 @@ $q = $_POST['search'];
         echo "</div>";
     }
     
-    echo "</div>";  
+    echo "</div>";
+}  
     include (APPROOT . INC . '/footer.php'); 
     
     
